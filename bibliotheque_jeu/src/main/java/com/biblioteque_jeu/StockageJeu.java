@@ -1,10 +1,14 @@
 package com.biblioteque_jeu;
 import java.util.ArrayList;
-
+import java.util.List;
 
 public class StockageJeu {
     private ArrayList<Jeu> jeux;
-    private static int taille = 0;
+    private int taille = 0;
+
+    public StockageJeu() {
+        this.jeux = new ArrayList<>();
+    }
 
     public void ajouterJeu(Jeu jeu) {
         jeux.add(jeu);
@@ -19,7 +23,14 @@ public class StockageJeu {
         }
     }
 
+    public void supprimerJeu(int index) {
+        if (index >= 0 && index < jeux.size()) {
+            jeux.remove(index);
+            taille--;
+        }
+    }
+
     public int getTaille() {
-        return taille;
+        return jeux.size();
     }
 }
